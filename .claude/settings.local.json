@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//d/github/react/**)",
+      "Bash(done)",
+      "Bash(mv chapter05.js 05datatype.js)",
+      "Bash(mv chapter06.js 06typeconversion.js)",
+      "Bash(mv chapter07.js 07operator1.js)",
+      "Bash(mv chapter08.js 08operator2.js)",
+      "Bash(mv chapter09.js 09conditional.js)"
+    ]
+  }
+}
