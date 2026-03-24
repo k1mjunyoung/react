@@ -10,6 +10,11 @@
 // ES6
 import mul, { add, sub } from "./math.js";
 
-console.log(add(1, 2));
-console.log(sub(1, 2));
-console.log(mul(1, 2));
+// console.log(add(1, 2))
+// console.log(sub(1, 2));
+// console.log(mul(1, 2));
+
+import randonColor from "randomcolor";
+
+const color = randonColor();
+console.log(color);
