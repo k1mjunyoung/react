@@ -1,13 +1,20 @@
 import './App.css'
-import Register from './components/Register'
-import Hook from './components/Hook'
+import Viewer from './components/Viewer'
+import Controller from './components/Cotroller'
 
 function App() { // App 컴포넌트(부모 컴포넌트)
   return (
-    <>
-      <Register />
-      <Hook />
-    </>
+    <div className="App">
+      <h1>Simple Counter</h1>
+
+      <section>
+        <Viewer />
+      </section>
+
+      <section>
+        <Controller />
+      </section>
+    </div>
   )
 }
 
