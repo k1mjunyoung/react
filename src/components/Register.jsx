@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+
+// let count = 0; // 여러개의 같은 컴포넌트가 하나의 변수 공유하게 되는 문제
 
 const Register = () => {
-
   const [input, setInput ] = useState({
     name: "",
     birth: "",
@@ -9,19 +10,33 @@ const Register = () => {
     bio:"",
   })
 
+  const countRef = useRef(0); // 값이 변경되어도 리렌더링 X
+  let count = 0;
+
+  const inputRef = useRef();
+
   // 통합 이벤트 핸들러
   const onChange = (e) => {
-    console.log(e.target.name, e.target.value);
+    countRef.current++;
+    count++;
+    console.log(count, countRef);
     setInput({
       ...input,
       [e.target.name]: e.target.value, // JavaScript에서 객체 리터럴의 키를 동적으로 지정할 때 []를 사용 
     });
   };
 
+  const onSubmit = () => {
+    if(input.name === "") {
+      // 이름을 입력하는 DOM 요소에 포커스
+      inputRef.current.focus();
+    }
+  }
+
   return (
     <div>
       <div>
-        <input name="name" value={input.name} onChange={onChange} placeholder={"이름"} />
+        <input ref={inputRef} name="name" value={input.name} onChange={onChange} placeholder={"이름"} />
       </div>
 
       <div>
@@ -40,6 +55,7 @@ const Register = () => {
       <div>
         <textarea name="bio" value={input.bio} onChange={onChange}/>
       </div>
+      <button onClick={onSubmit}>제출</button>
     </div>
   )
 }
